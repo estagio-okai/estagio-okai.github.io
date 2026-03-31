@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 const checks = [
   "Widget visível no canto inferior direito",
-  "Título do launcher: “Suporte N1”",
+  "Título do launcher: “SGP - Suporte N1”",
   "SDK carregado de https://chat.okia.dev/packs/js/sdk.js",
   "Conversa entregue no inbox configurado para o websiteToken desta demo",
 ];
