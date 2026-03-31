@@ -1,4 +1,5 @@
 import { MessageCircle } from "lucide-react";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
@@ -27,17 +28,27 @@ export function ChatDemoHero() {
             . Use esta demo para validar fluxos, mensagens e aparência antes de
             publicar no site principal.
           </p>
+          <p className="text-sm text-muted-foreground sm:text-base">
+            <strong className="font-medium text-foreground">
+              Botões no canto inferior direito:
+            </strong>{" "}
+            cada canal abre um painel com iframe próprio. Só um painel fica
+            ativo — ao trocar de canal, o anterior some, sem dois chats
+            abertos ao mesmo tempo.
+          </p>
           <div className="flex flex-wrap gap-3">
             <Button asChild size="lg" className="shadow-md">
               <a href="#como-funciona">Como funciona</a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="/testes-chat">Página de testes</a>
+              <Link href="/testes-chat/">Página de testes</Link>
             </Button>
           </div>
           <p className="flex items-center gap-2 text-sm text-muted-foreground">
             <MessageCircle className="size-4 text-primary" aria-hidden />
-            Procure o botão do chat no canto inferior direito da tela.
+            Um clique no canal abre o painel e o Chatwoot já entra na conversa
+            (sem segundo clique na bolha). Clique de novo no mesmo botão para
+            fechar.
           </p>
         </div>
       </div>

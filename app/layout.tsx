@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 
-import { ChatwootScript } from "@/components/integrations/chatwoot-script";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import "./globals.css";
@@ -47,7 +46,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-          <ChatwootScript />
         </ThemeProvider>
       </body>
     </html>

@@ -6,5 +6,8 @@ declare global {
     chatwootSDK?: {
       run: (opts: { websiteToken: string; baseUrl: string }) => void;
     };
+    $chatwoot?: {
+      toggle: (state?: "open" | "close") => void;
+    };
   }
 }

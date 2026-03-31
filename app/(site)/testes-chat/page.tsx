@@ -15,10 +15,11 @@ export const metadata: Metadata = {
 };
 
 const checks = [
-  "Widget visível no canto inferior direito",
-  "Título do launcher: “SGP - Suporte N1”",
-  "SDK carregado de https://chat.okia.dev/packs/js/sdk.js",
-  "Conversa entregue no inbox configurado para o websiteToken desta demo",
+  "Botões Suporte N1 e Comercial no canto inferior direito",
+  "Abrir um canal mostra iframe em /embed/chat/<id>/ com o token correspondente",
+  "Abrir outro canal substitui o iframe — apenas um chat visível",
+  "Clique repetido no mesmo botão fecha o painel",
+  "SDK carregado de https://chat.okia.dev dentro de cada iframe",
 ];
 
 export default function TestesChatPage() {
@@ -35,13 +36,26 @@ export default function TestesChatPage() {
       </div>
       <Card className="mb-8 border-border/80">
         <CardHeader>
-          <CardTitle>Configuração embutida</CardTitle>
+          <CardTitle>Dock + iframes</CardTitle>
           <CardDescription>
-            Mesmo script usado em produção desta demo; ajuste o token ou a base
-            URL apenas quando migrar de ambiente.
+            Canais e tokens em{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">
+              lib/chatwoot-channels.ts
+            </code>
+            . Adicione linhas quando tiver os outros tokens.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">
+          <p>
+            <span className="font-medium text-foreground">Rotas embed:</span>{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">
+              /embed/chat/suporte-n1/
+            </code>
+            ,{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">
+              /embed/chat/comercial/
+            </code>
+          </p>
           <p>
             <span className="font-medium text-foreground">Base URL:</span>{" "}
             https://chat.okia.dev

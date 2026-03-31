@@ -9,16 +9,16 @@ import {
 
 const steps = [
   {
-    title: "Abra o widget",
-    body: "Clique no launcher do Chatwoot (canto inferior direito) para abrir a conversa.",
+    title: "Escolha o canal",
+    body: "Use o botão do canal desejado (Suporte N1, Comercial, …) no canto inferior direito. O painel abre com o widget daquele token.",
   },
   {
     title: "Envie mensagens de teste",
     body: "Simule dúvidas de clientes, anexos e respostas rápidas para validar o atendimento.",
   },
   {
-    title: "Compare com produção",
-    body: "Confira se o token e a URL base apontam para o ambiente correto (esta demo usa chat.okia.dev).",
+    title: "Um chat por vez",
+    body: "Ao mudar de canal, o iframe é trocado — não há duas instâncias do SDK na página principal. Clique outra vez no mesmo botão para fechar o painel.",
   },
 ];
 
