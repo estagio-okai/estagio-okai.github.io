@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -70,7 +71,7 @@ export default function TestesChatPage() {
       </ul>
       <div className="mt-10 flex flex-wrap gap-3">
         <Button asChild>
-          <a href="/">Voltar ao início</a>
+          <Link href="/">Voltar ao início</Link>
         </Button>
         <Button asChild variant="outline">
           <a
