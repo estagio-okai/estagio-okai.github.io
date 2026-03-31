@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const checks = [
-  "Botões Suporte N1 e Comercial no canto inferior direito",
+  "Botões dos canais (SGP Suporte N1, Comercial, Hubsoft Suporte N1) no canto inferior direito",
   "Abrir um canal mostra iframe em /embed/chat/<id>/ com o token correspondente",
   "Abrir outro canal substitui o iframe — apenas um chat visível",
   "Clique repetido no mesmo botão fecha o painel",
@@ -54,6 +54,10 @@ export default function TestesChatPage() {
             ,{" "}
             <code className="rounded bg-muted px-1 py-0.5 text-xs">
               /embed/chat/comercial/
+            </code>
+            ,{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">
+              /embed/chat/hubsoft-suporte-n1/
             </code>
           </p>
           <p>

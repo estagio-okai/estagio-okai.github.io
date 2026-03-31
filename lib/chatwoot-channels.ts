@@ -18,6 +18,11 @@ export const chatwootChannels: ChatwootChannel[] = [
     label: "SGP - Comercial",
     websiteToken: "9haM6Yg4wncmXs5oxP3ouGxT",
   },
+  {
+    id: "hubsoft-suporte-n1",
+    label: "Hubsoft - Suporte N1",
+    websiteToken: "AhY2G2nwUuvFB36N9cck2ijy",
+  },
 ];
 
 export function getChatwootChannel(
