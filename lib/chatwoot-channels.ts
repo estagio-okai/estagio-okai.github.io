@@ -6,23 +6,45 @@ export type ChatwootChannel = {
   websiteToken: string;
 };
 
-/** Canais com token próprio; adicione entradas para os outros 4 quando tiver os tokens. */
-export const chatwootChannels: ChatwootChannel[] = [
+export type ChatwootChannelGroup = {
+  id: string;
+  label: string;
+  channels: ChatwootChannel[];
+};
+
+/** Grupos no dock (dropdown). */
+export const chatwootChannelGroups: ChatwootChannelGroup[] = [
   {
-    id: "suporte-n1",
-    label: "SGP - Suporte N1",
-    websiteToken: "WegtGJo4QLoUC225snJsXvqV",
+    id: "sgp",
+    label: "SGP",
+    channels: [
+      {
+        id: "suporte-n1",
+        label: "Suporte N1",
+        websiteToken: "WegtGJo4QLoUC225snJsXvqV",
+      },
+      {
+        id: "comercial",
+        label: "Comercial",
+        websiteToken: "9haM6Yg4wncmXs5oxP3ouGxT",
+      },
+    ],
   },
-  {
-    id: "comercial",
-    label: "SGP - Comercial",
-    websiteToken: "9haM6Yg4wncmXs5oxP3ouGxT",
-  },
+];
+
+/** Botões diretos (sem submenu). */
+export const chatwootStandaloneChannels: ChatwootChannel[] = [
   {
     id: "hubsoft-suporte-n1",
     label: "Hubsoft - Suporte N1",
     websiteToken: "AhY2G2nwUuvFB36N9cck2ijy",
   },
+];
+
+/** Lista plana para rotas embed e busca por slug. */
+export const chatwootChannels: ChatwootChannel[] = [
+  ...chatwootChannelGroups.flatMap((g) => g.channels),
+  ...chatwootStandaloneChannels,
 ];
 
 export function getChatwootChannel(

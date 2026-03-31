@@ -10,7 +10,7 @@ import {
 const steps = [
   {
     title: "Escolha o canal",
-    body: "Use o botão do canal desejado (Suporte N1, Comercial, …) no canto inferior direito. O painel abre com o widget daquele token.",
+    body: "Abra o menu SGP para Suporte N1 ou Comercial, ou use o botão Hubsoft. O painel abre com o widget daquele token.",
   },
   {
     title: "Envie mensagens de teste",

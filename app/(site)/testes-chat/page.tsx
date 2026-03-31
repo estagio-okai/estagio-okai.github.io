@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const checks = [
-  "Botões dos canais (SGP Suporte N1, Comercial, Hubsoft Suporte N1) no canto inferior direito",
+  "Menu SGP (Suporte N1 + Comercial) e botão Hubsoft no canto inferior direito",
   "Abrir um canal mostra iframe em /embed/chat/<id>/ com o token correspondente",
   "Abrir outro canal substitui o iframe — apenas um chat visível",
   "Clique repetido no mesmo botão fecha o painel",
@@ -38,11 +38,19 @@ export default function TestesChatPage() {
         <CardHeader>
           <CardTitle>Dock + iframes</CardTitle>
           <CardDescription>
-            Canais e tokens em{" "}
+            Grupos dropdown e canais avulsos em{" "}
             <code className="rounded bg-muted px-1 py-0.5 text-xs">
               lib/chatwoot-channels.ts
             </code>
-            . Adicione linhas quando tiver os outros tokens.
+            (
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">
+              chatwootChannelGroups
+            </code>
+            ,{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">
+              chatwootStandaloneChannels
+            </code>
+            ).
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">

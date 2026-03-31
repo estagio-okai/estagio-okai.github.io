@@ -30,11 +30,11 @@ export function ChatDemoHero() {
           </p>
           <p className="text-sm text-muted-foreground sm:text-base">
             <strong className="font-medium text-foreground">
-              Botões no canto inferior direito:
+              Dock no canto inferior direito:
             </strong>{" "}
-            cada canal abre um painel com iframe próprio. Só um painel fica
-            ativo — ao trocar de canal, o anterior some, sem dois chats
-            abertos ao mesmo tempo.
+            o menu <strong className="font-medium text-foreground">SGP</strong>{" "}
+            agrupa Suporte N1 e Comercial; Hubsoft segue como botão direto.
+            Só um painel de chat fica ativo por vez.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button asChild size="lg" className="shadow-md">
@@ -46,9 +46,10 @@ export function ChatDemoHero() {
           </div>
           <p className="flex items-center gap-2 text-sm text-muted-foreground">
             <MessageCircle className="size-4 text-primary" aria-hidden />
-            Um clique no canal abre o painel e o Chatwoot já entra na conversa
-            (sem segundo clique na bolha). Clique de novo no mesmo botão para
-            fechar.
+            Depois de escolher o canal (menu SGP ou botão Hubsoft), o painel
+            abre e o Chatwoot entra na conversa. No SGP são dois passos: abrir
+            o menu e clicar na opção. Clique de novo na mesma entrada para
+            fechar o painel.
           </p>
         </div>
       </div>

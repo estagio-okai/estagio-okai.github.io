@@ -1,10 +1,20 @@
 "use client";
 
-import { MessageCircle, X } from "lucide-react";
+import { ChevronDown, MessageCircle, X } from "lucide-react";
 import { useCallback, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { chatwootChannels } from "@/lib/chatwoot-channels";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  chatwootChannelGroups,
+  chatwootChannels,
+  chatwootStandaloneChannels,
+} from "@/lib/chatwoot-channels";
 import { cn } from "@/lib/utils";
 
 export function ChatwootDock() {
@@ -26,6 +36,13 @@ export function ChatwootDock() {
   const active = openSlug
     ? chatwootChannels.find((c) => c.id === openSlug)
     : null;
+
+  const isChannelActive = (id: string) => openSlug === id;
+
+  const isGroupActive = (groupId: string) =>
+    chatwootChannelGroups
+      .find((g) => g.id === groupId)
+      ?.channels.some((c) => c.id === openSlug);
 
   return (
     <div
@@ -63,25 +80,60 @@ export function ChatwootDock() {
       )}
 
       <div className="pointer-events-auto flex flex-col items-end gap-2">
-        {chatwootChannels.map((ch) => {
-          const isOpen = openSlug === ch.id;
-          return (
-            <Button
-              key={ch.id}
-              type="button"
-              size="sm"
-              variant={isOpen ? "default" : "secondary"}
-              className={cn(
-                "max-w-[min(280px,calc(100vw-3rem))] justify-start gap-2 shadow-md",
-                isOpen && "ring-2 ring-ring ring-offset-2 ring-offset-background",
-              )}
-              onClick={() => selectChannel(ch.id)}
-            >
-              <MessageCircle className="size-4 shrink-0" aria-hidden />
-              <span className="truncate">{ch.label}</span>
-            </Button>
-          );
-        })}
+        {chatwootChannelGroups.map((group) => (
+          <DropdownMenu key={group.id}>
+            <DropdownMenuTrigger asChild>
+              <Button
+                type="button"
+                size="sm"
+                variant={isGroupActive(group.id) ? "default" : "secondary"}
+                className={cn(
+                  "max-w-[min(280px,calc(100vw-3rem))] justify-between gap-2 shadow-md",
+                  isGroupActive(group.id) &&
+                    "ring-2 ring-ring ring-offset-2 ring-offset-background",
+                )}
+              >
+                <span className="flex items-center gap-2 truncate">
+                  <MessageCircle className="size-4 shrink-0" aria-hidden />
+                  {group.label}
+                </span>
+                <ChevronDown className="size-4 shrink-0 opacity-70" aria-hidden />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" side="top" sideOffset={8}>
+              {group.channels.map((ch) => (
+                <DropdownMenuItem
+                  key={ch.id}
+                  className={cn(
+                    "cursor-pointer",
+                    isChannelActive(ch.id) && "bg-accent/50",
+                  )}
+                  onClick={() => selectChannel(ch.id)}
+                >
+                  {ch.label}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        ))}
+
+        {chatwootStandaloneChannels.map((ch) => (
+          <Button
+            key={ch.id}
+            type="button"
+            size="sm"
+            variant={isChannelActive(ch.id) ? "default" : "secondary"}
+            className={cn(
+              "max-w-[min(280px,calc(100vw-3rem))] justify-start gap-2 shadow-md",
+              isChannelActive(ch.id) &&
+                "ring-2 ring-ring ring-offset-2 ring-offset-background",
+            )}
+            onClick={() => selectChannel(ch.id)}
+          >
+            <MessageCircle className="size-4 shrink-0" aria-hidden />
+            <span className="truncate">{ch.label}</span>
+          </Button>
+        ))}
       </div>
     </div>
   );
