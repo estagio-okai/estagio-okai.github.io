@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 };
 
 const checks = [
-  "Menus SGP e Hubsoft (cada um com Suporte N1 + Comercial) no canto inferior direito",
-  "Abrir um canal mostra iframe em /embed/chat/<id>/ com o token correspondente",
+  "Menus SGP, Hubsoft e IXC (cada um com Suporte N1 + Comercial, exceto IXC Comercial em WIP) no canto inferior direito",
+  "Abrir um canal com embed mostra iframe em /embed/chat/<id>/ com o token correspondente; canais WIP mostram aviso no painel",
   "Abrir outro canal substitui o iframe — apenas um chat visível",
   "Clique repetido no mesmo botão fecha o painel",
   "SDK carregado de https://chat.okia.dev dentro de cada iframe",
@@ -71,6 +71,11 @@ export default function TestesChatPage() {
             <code className="rounded bg-muted px-1 py-0.5 text-xs">
               /embed/chat/hubsoft-comercial/
             </code>
+            ,{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-xs">
+              /embed/chat/ixc-suporte-n1/
+            </code>
+            . IXC Comercial não gera rota embed (WIP).
           </p>
           <p>
             <span className="font-medium text-foreground">Base URL:</span>{" "}

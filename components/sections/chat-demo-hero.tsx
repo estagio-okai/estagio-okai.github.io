@@ -32,9 +32,12 @@ export function ChatDemoHero() {
             <strong className="font-medium text-foreground">
               Dock no canto inferior direito:
             </strong>{" "}
-            os menus <strong className="font-medium text-foreground">SGP</strong>{" "}
-            e <strong className="font-medium text-foreground">Hubsoft</strong>{" "}
-            agrupam os respectivos canais (Suporte N1 e Comercial em cada um).
+            os menus{" "}
+            <strong className="font-medium text-foreground">SGP</strong>,{" "}
+            <strong className="font-medium text-foreground">Hubsoft</strong> e{" "}
+            <strong className="font-medium text-foreground">IXC</strong>{" "}
+            agrupam os respectivos canais (Suporte N1 e Comercial; IXC Comercial
+            está em WIP).
             Só um painel de chat fica ativo por vez.
           </p>
           <div className="flex flex-wrap gap-3">
@@ -47,7 +50,7 @@ export function ChatDemoHero() {
           </div>
           <p className="flex items-center gap-2 text-sm text-muted-foreground">
             <MessageCircle className="size-4 text-primary" aria-hidden />
-            Depois de escolher o canal (menu SGP ou Hubsoft), o painel abre e o
+            Depois de escolher o canal (menu SGP, Hubsoft ou IXC), o painel abre e o
             Chatwoot entra na conversa: abra o menu e clique na opção. Clique de
             novo na mesma entrada para fechar o painel.
           </p>

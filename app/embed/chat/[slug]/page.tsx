@@ -3,12 +3,12 @@ import { notFound } from "next/navigation";
 
 import { ChatwootEmbedClient } from "@/components/integrations/chatwoot-embed-client";
 import {
-  chatwootChannels,
+  chatwootEmbeddableChannels,
   getChatwootChannel,
 } from "@/lib/chatwoot-channels";
 
 export function generateStaticParams() {
-  return chatwootChannels.map((c) => ({ slug: c.id }));
+  return chatwootEmbeddableChannels.map((c) => ({ slug: c.id }));
 }
 
 export async function generateMetadata({
@@ -31,7 +31,7 @@ export default async function EmbedChatPage({
 }) {
   const { slug } = await params;
   const ch = getChatwootChannel(slug);
-  if (!ch) {
+  if (!ch?.websiteToken || ch.wip) {
     notFound();
   }
 
@@ -39,7 +39,7 @@ export default async function EmbedChatPage({
     <div className="fixed inset-0 h-dvh w-full overflow-hidden bg-background">
       <ChatwootEmbedClient
         websiteToken={ch.websiteToken}
-        launcherTitle={ch.label}
+        launcherTitle={ch.launcherTitle ?? ch.label}
       />
     </div>
   );

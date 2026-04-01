@@ -2,8 +2,13 @@ export const CHATWOOT_BASE_URL = "https://chat.okia.dev";
 
 export type ChatwootChannel = {
   id: string;
+  /** Texto no item do dropdown */
   label: string;
-  websiteToken: string;
+  /** Título do launcher no widget; se omitido, usa `label`. */
+  launcherTitle?: string;
+  websiteToken?: string;
+  /** Sem Chatwoot: o painel mostra aviso WIP. */
+  wip?: boolean;
 };
 
 export type ChatwootChannelGroup = {
@@ -36,13 +41,32 @@ export const chatwootChannelGroups: ChatwootChannelGroup[] = [
     channels: [
       {
         id: "hubsoft-suporte-n1",
-        label: "Hubsoft - Suporte N1",
+        label: "Suporte N1",
+        launcherTitle: "Hubsoft - Suporte N1",
         websiteToken: "AhY2G2nwUuvFB36N9cck2ijy",
       },
       {
         id: "hubsoft-comercial",
-        label: "Hubsoft - Comercial",
+        label: "Comercial",
+        launcherTitle: "Hubsoft - Comercial",
         websiteToken: "f4kiu1Y8tfMiLS6vM3Ph3cXN",
+      },
+    ],
+  },
+  {
+    id: "ixc",
+    label: "IXC",
+    channels: [
+      {
+        id: "ixc-suporte-n1",
+        label: "Suporte N1",
+        launcherTitle: "IXC - Suporte N1",
+        websiteToken: "dHHqFpg1FHkd5ZicK1KkB4xs",
+      },
+      {
+        id: "ixc-comercial",
+        label: "Comercial",
+        wip: true,
       },
     ],
   },
@@ -57,8 +81,23 @@ export const chatwootChannels: ChatwootChannel[] = [
   ...chatwootStandaloneChannels,
 ];
 
+/** Canais que geram página embed estática com Chatwoot. */
+export const chatwootEmbeddableChannels: ChatwootChannel[] =
+  chatwootChannels.filter((c) => !c.wip && Boolean(c.websiteToken));
+
 export function getChatwootChannel(
   slug: string,
 ): ChatwootChannel | undefined {
   return chatwootChannels.find((c) => c.id === slug);
+}
+
+/** Título do painel do dock: "Grupo — opção". */
+export function channelPanelTitle(ch: ChatwootChannel): string {
+  const group = chatwootChannelGroups.find((g) =>
+    g.channels.some((c) => c.id === ch.id),
+  );
+  if (group) {
+    return `${group.label} — ${ch.label}`;
+  }
+  return ch.label;
 }

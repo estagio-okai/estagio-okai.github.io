@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
+  channelPanelTitle,
   chatwootChannelGroups,
   chatwootChannels,
   chatwootStandaloneChannels,
@@ -53,11 +54,11 @@ export function ChatwootDock() {
         <div
           className="pointer-events-auto flex max-h-[min(780px,88vh)] w-[min(420px,calc(100vw-2rem))] flex-col overflow-hidden rounded-xl border border-border bg-card shadow-lg"
           role="dialog"
-          aria-label={`Chat ${active.label}`}
+          aria-label={`Chat ${channelPanelTitle(active)}`}
         >
           <div className="flex items-center justify-between gap-2 border-b border-border bg-muted/50 px-3 py-2">
             <span className="truncate text-sm font-semibold text-foreground">
-              {active.label}
+              {channelPanelTitle(active)}
             </span>
             <Button
               type="button"
@@ -70,12 +71,27 @@ export function ChatwootDock() {
               <X className="size-4" aria-hidden />
             </Button>
           </div>
-          <iframe
-            key={openSlug}
-            title={active.label}
-            src={`/embed/chat/${openSlug}/`}
-            className="min-h-[min(620px,78vh)] flex-1 w-full border-0 bg-background"
-          />
+          {active.wip ? (
+            <div className="flex min-h-[min(620px,78vh)] flex-col items-center justify-center gap-3 px-6 py-10 text-center">
+              <p className="text-sm font-semibold text-foreground">
+                Em construção (WIP)
+              </p>
+              <p className="max-w-xs text-sm text-muted-foreground">
+                O canal{" "}
+                <span className="font-medium text-foreground">
+                  {channelPanelTitle(active)}
+                </span>{" "}
+                ainda não está disponível nesta demo. Volte em breve.
+              </p>
+            </div>
+          ) : (
+            <iframe
+              key={openSlug}
+              title={channelPanelTitle(active)}
+              src={`/embed/chat/${openSlug}/`}
+              className="min-h-[min(620px,78vh)] flex-1 w-full border-0 bg-background"
+            />
+          )}
         </div>
       )}
 
