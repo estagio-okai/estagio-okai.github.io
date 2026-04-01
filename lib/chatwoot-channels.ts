@@ -30,16 +30,26 @@ export const chatwootChannelGroups: ChatwootChannelGroup[] = [
       },
     ],
   },
-];
-
-/** Botões diretos (sem submenu). */
-export const chatwootStandaloneChannels: ChatwootChannel[] = [
   {
-    id: "hubsoft-suporte-n1",
-    label: "Hubsoft - Suporte N1",
-    websiteToken: "AhY2G2nwUuvFB36N9cck2ijy",
+    id: "hubsoft",
+    label: "Hubsoft",
+    channels: [
+      {
+        id: "hubsoft-suporte-n1",
+        label: "Hubsoft - Suporte N1",
+        websiteToken: "AhY2G2nwUuvFB36N9cck2ijy",
+      },
+      {
+        id: "hubsoft-comercial",
+        label: "Hubsoft - Comercial",
+        websiteToken: "f4kiu1Y8tfMiLS6vM3Ph3cXN",
+      },
+    ],
   },
 ];
+
+/** Botões diretos (sem submenu); vazio se todos os canais estiverem em grupos. */
+export const chatwootStandaloneChannels: ChatwootChannel[] = [];
 
 /** Lista plana para rotas embed e busca por slug. */
 export const chatwootChannels: ChatwootChannel[] = [
