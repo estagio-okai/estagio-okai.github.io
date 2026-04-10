@@ -1,11 +1,18 @@
 export const CHATWOOT_BASE_URL = "https://chat.okia.dev";
 
+/** Valor de `chatwootSettings.type` no SDK. */
+export type ChatwootWidgetType = "standard" | "expanded_bubble";
+
 export type ChatwootChannel = {
   id: string;
   /** Texto no item do dropdown */
   label: string;
   /** Título do launcher no widget; se omitido, usa `label`. */
   launcherTitle?: string;
+  /** Instância Chatwoot; padrão CHATWOOT_BASE_URL. */
+  baseUrl?: string;
+  /** Modo do bubble; padrão expanded_bubble. */
+  widgetType?: ChatwootWidgetType;
   websiteToken?: string;
   /** Sem Chatwoot: o painel mostra aviso WIP. */
   wip?: boolean;
@@ -48,8 +55,10 @@ export const chatwootChannelGroups: ChatwootChannelGroup[] = [
       {
         id: "hubsoft-comercial",
         label: "Comercial",
-        launcherTitle: "Hubsoft - Comercial",
-        websiteToken: "f4kiu1Y8tfMiLS6vM3Ph3cXN",
+        launcherTitle: "Fale conosco no chat",
+        baseUrl: "https://chat.okia.ai",
+        widgetType: "standard",
+        websiteToken: "L97PhejjMhbke14GLczyBL8c",
       },
     ],
   },

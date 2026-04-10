@@ -1,18 +1,28 @@
 "use client";
 
-import { CHATWOOT_BASE_URL } from "@/lib/chatwoot-channels";
+import {
+  CHATWOOT_BASE_URL,
+  type ChatwootWidgetType,
+} from "@/lib/chatwoot-channels";
 import { useEffect } from "react";
 
 type Props = {
   websiteToken: string;
   launcherTitle: string;
+  baseUrl?: string;
+  widgetType?: ChatwootWidgetType;
 };
 
-export function ChatwootEmbedClient({ websiteToken, launcherTitle }: Props) {
+export function ChatwootEmbedClient({
+  websiteToken,
+  launcherTitle,
+  baseUrl = CHATWOOT_BASE_URL,
+  widgetType = "expanded_bubble",
+}: Props) {
   useEffect(() => {
     window.chatwootSettings = {
       position: "right",
-      type: "expanded_bubble",
+      type: widgetType,
       launcherTitle,
       hideMessageBubble: true,
     };
@@ -31,12 +41,12 @@ export function ChatwootEmbedClient({ websiteToken, launcherTitle }: Props) {
 
     const script = document.createElement("script");
     script.async = true;
-    script.src = `${CHATWOOT_BASE_URL}/packs/js/sdk.js`;
+    script.src = `${baseUrl}/packs/js/sdk.js`;
 
     const onLoad = () => {
       window.chatwootSDK?.run({
         websiteToken,
-        baseUrl: CHATWOOT_BASE_URL,
+        baseUrl,
       });
       fallbackId = setTimeout(() => {
         fallbackId = undefined;
@@ -55,7 +65,7 @@ export function ChatwootEmbedClient({ websiteToken, launcherTitle }: Props) {
       script.removeEventListener("load", onLoad);
       script.remove();
     };
-  }, [websiteToken, launcherTitle]);
+  }, [websiteToken, launcherTitle, baseUrl, widgetType]);
 
   return (
     <div

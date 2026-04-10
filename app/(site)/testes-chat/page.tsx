@@ -19,7 +19,7 @@ const checks = [
   "Abrir um canal com embed mostra iframe em /embed/chat/<id>/ com o token correspondente; canais WIP mostram aviso no painel",
   "Abrir outro canal substitui o iframe — apenas um chat visível",
   "Clique repetido no mesmo botão fecha o painel",
-  "SDK carregado de https://chat.okia.dev dentro de cada iframe",
+  "SDK carregado da base do canal (https://chat.okia.dev ou https://chat.okia.ai) dentro de cada iframe",
 ];
 
 export default function TestesChatPage() {
@@ -79,13 +79,13 @@ export default function TestesChatPage() {
           </p>
           <p>
             <span className="font-medium text-foreground">Base URL:</span>{" "}
-            https://chat.okia.dev
+            na maioria dos canais, https://chat.okia.dev; Hubsoft Comercial usa
+            https://chat.okia.ai.
           </p>
           <p>
             <span className="font-medium text-foreground">Tipo:</span>{" "}
-            expanded_bubble · <span className="font-medium text-foreground">
-              Posição:
-            </span>{" "}
+            expanded_bubble (padrão); Hubsoft Comercial usa standard.{" "}
+            <span className="font-medium text-foreground">Posição:</span>{" "}
             direita (right)
           </p>
         </CardContent>

@@ -40,6 +40,8 @@ export default async function EmbedChatPage({
       <ChatwootEmbedClient
         websiteToken={ch.websiteToken}
         launcherTitle={ch.launcherTitle ?? ch.label}
+        baseUrl={ch.baseUrl}
+        widgetType={ch.widgetType}
       />
     </div>
   );
