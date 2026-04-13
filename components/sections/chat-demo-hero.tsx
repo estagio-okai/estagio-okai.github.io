@@ -36,8 +36,8 @@ export function ChatDemoHero() {
             <strong className="font-medium text-foreground">SGP</strong>,{" "}
             <strong className="font-medium text-foreground">Hubsoft</strong> e{" "}
             <strong className="font-medium text-foreground">IXC</strong>{" "}
-            agrupam os respectivos canais (Suporte N1 e Comercial; IXC Comercial
-            está em WIP).
+            agrupam os respectivos canais (no Hubsoft há também Multi-Agente; IXC
+            Comercial está em WIP).
             Só um painel de chat fica ativo por vez.
           </p>
           <div className="flex flex-wrap gap-3">

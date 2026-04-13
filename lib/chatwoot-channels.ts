@@ -60,6 +60,12 @@ export const chatwootChannelGroups: ChatwootChannelGroup[] = [
         widgetType: "standard",
         websiteToken: "L97PhejjMhbke14GLczyBL8c",
       },
+      {
+        id: "hubsoft-multi-agente",
+        label: "Multi-Agente",
+        launcherTitle: "Hubsoft - Multi-Agente",
+        websiteToken: "X7GpazDQycbykRKQVi7ah2M9",
+      },
     ],
   },
   {
