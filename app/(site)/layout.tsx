@@ -1,4 +1,5 @@
 import { ChatwootDock } from "@/components/integrations/chatwoot-dock";
+import { ChatwootTestAgentBubble } from "@/components/integrations/chatwoot-test-agent-bubble";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 
@@ -13,6 +14,7 @@ export default function SiteLayout({
       <main className="flex-1">{children}</main>
       <SiteFooter />
       <ChatwootDock />
+      <ChatwootTestAgentBubble />
     </div>
   );
 }

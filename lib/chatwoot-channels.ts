@@ -116,3 +116,12 @@ export function channelPanelTitle(ch: ChatwootChannel): string {
   }
   return ch.label;
 }
+
+/** Widget fixo no canto inferior esquerdo (agente de testes), fora do dock. */
+export const CHATWOOT_TEST_AGENT_WIDGET = {
+  baseUrl: CHATWOOT_BASE_URL,
+  websiteToken: "nkHhmLTNgjbL7D1JJBwYGDR8",
+  launcherTitle: "Fale conosco no chat",
+  widgetType: "standard" as const satisfies ChatwootWidgetType,
+  position: "left" as const,
+};

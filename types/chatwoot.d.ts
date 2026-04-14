@@ -8,6 +8,8 @@ declare global {
     };
     $chatwoot?: {
       toggle: (state?: "open" | "close") => void;
+      reset?: () => void;
+      toggleBubbleVisibility?: (visibility: "show" | "hide") => void;
     };
   }
 }

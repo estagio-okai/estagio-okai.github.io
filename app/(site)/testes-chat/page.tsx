@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 
 const checks = [
   "Menus SGP, Hubsoft e IXC: Hubsoft inclui Suporte N1, Comercial e Multi-Agente; IXC Comercial em WIP",
+  "Widget Chatwoot extra (agente de testes) no canto inferior esquerdo, independente do dock",
   "Abrir um canal com embed mostra iframe em /embed/chat/<id>/ com o token correspondente; canais WIP mostram aviso no painel",
   "Abrir outro canal substitui o iframe — apenas um chat visível",
   "Clique repetido no mesmo botão fecha o painel",
